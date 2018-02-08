@@ -1,0 +1,55 @@
+<html>
+
+<form>
+    Username: <br>
+    <input type="text" name="username" id="name">
+    <br>
+    Password:<br>
+    <input type="text" name="password">
+    <br><br>
+    <button type="button" id="login">login</button>
+    <div id="response"></div>
+    </form>
+
+    <script>
+
+        function POST() {
+          var receive = new XMLHttpRequest()
+          receive.onload = function () {
+            document.getElementById('response').innerHTML=receive.responseText;
+          }
+          receive.open('POST', "http://localhost/~lawrencegabriel/SeniorProject/Main/alpha.php", true)
+          receive.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+          var username = document.getElementsByName("username")[0].value
+          var password = document.getElementsByName("password")[0].value
+
+          receive.send("username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password));
+        }
+        var postbutton = document.getElementById("login")
+        postbutton.addEventListener("click", POST)
+         /*  Receive PHP response 
+           Give HTML the response to write using if statements
+           based off whether or not a true or false was received
+           */
+           //http://web.njit.edu/~jdt26/alphamiddle.php
+          // var receive = new XMLHttpRequest();
+
+            //Send the proper header information along with the request
+          //  receive.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+            
+            //var username = document.getElementsByName("username").value;
+            //var password = document.getElementsByName("password").value;
+               
+               // receive.open("POST", '', true)
+               // receive.onload = function() {
+               // var response = String(receive.responseText)
+               // document.getElementById("response").innerHTML = response
+              //  }
+            
+        
+       
+    </script>
+
+</html>
