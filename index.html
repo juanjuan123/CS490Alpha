@@ -1,0 +1,33 @@
+<html>
+
+<body>
+<button id="button">Get Response</button>
+
+<script>
+
+document.getElementById('button').addEventListener('click', loadTest)
+function loadTest() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'post.php', true)
+
+    xhr.onload = function () {
+        if(this.status == 200){
+            console.log(typeof(this.responseText))
+        }
+       
+    }
+    xhr.send()
+}
+</script>
+
+
+</body>
+
+
+
+
+
+
+
+
+</html>
